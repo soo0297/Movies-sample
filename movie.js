@@ -11,28 +11,12 @@ const options = {
   fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
     .then(response => response.json())
     .then(response => { 
-      console.log(response)
-      console.log(response.results)
       moviesData = response.results
-
       console.log(makeCard());
-      // let results = response['Object']['results']
-      // result.forEach((a) => {
-      //   let movie_title = a['title']
-      //   let movie_poster_path = a['poster_path']
-      //   let movie_vote_average = a['vote_average']
-      //   let movie_overview = a['overview']
-      //   let temp_html = `
-      //   <li>${movie_title}
-      //   ${movie_poster_path}
-      //   ${movie_vote_average}
-      //   ${movie_overview}
-      //   `
-      //   $('#c1')
-      // });
     })
     .catch(err => console.error(err));
 
+    
   // makeCard함수 만들기; 카드에 내용불러와서 만들기 
 function makeCard() {
   for (let i = 0; i < moviesData.length; i++) {
@@ -48,8 +32,6 @@ function makeCard() {
     cardList.append(card)
   }
 }
-  // console.log(moviesData);
-  // return moviesData[0].title;
     
 
 

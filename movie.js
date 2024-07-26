@@ -1,23 +1,25 @@
 const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkODljZjc5NmRmN2RiYWM3ZjMzZTBhOGFlZTY1NWMwZiIsIm5iZiI6MTcyMTkwMzMzOS43NDgyOTMsInN1YiI6IjY2YTIyMTk0YjFmNTFkYjI5NTcwODRjOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mYCuNlHu4WpDC_OSRitDvQxkaq9HL4KSOG5LLg9I6TI'
-    }
-  };
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkODljZjc5NmRmN2RiYWM3ZjMzZTBhOGFlZTY1NWMwZiIsIm5iZiI6MTcyMTkwMzMzOS43NDgyOTMsInN1YiI6IjY2YTIyMTk0YjFmNTFkYjI5NTcwODRjOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mYCuNlHu4WpDC_OSRitDvQxkaq9HL4KSOG5LLg9I6TI'
+  }
+};
 
-  let moviesData=[]
-  // TMDB API Fetch
-  fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
-    .then(response => response.json())
-    .then(response => { 
-      moviesData = response.results
-      console.log(makeCard());
-    })
-    .catch(err => console.error(err));
+let moviesData = []
+// TMDB API Fetch
+fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+  .then(response => response.json())
+  .then(response => {
+    moviesData = response.results
+    console.log(makeCard());
+    card.addEventListener('click', () => alert(`Movie ID: ${moviesData[i].id}`));
+  return card;
+  })
+  .catch(err => console.error(err));
 
-    
-  // makeCard함수 만들기; 카드에 내용불러와서 만들기 
+
+// makeCard함수 만들기; TMDB에서 불러온 내용으로 카드만들기 
 function makeCard() {
   for (let i = 0; i < moviesData.length; i++) {
     let card = document.createElement("div")
@@ -32,7 +34,7 @@ function makeCard() {
     cardList.append(card)
   }
 }
-    
+
 
 
 
